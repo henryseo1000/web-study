@@ -24,11 +24,13 @@ body {
   flex-direction: row;
   transition-duration: 1s;
 }
+.container .img_container .img_frame {
+  width: 70vw;
+  height: 70%;
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
 .container .img_container img {
-  aspect-ratio: 4/2.5;
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
   border-radius: 10px;
 }
 .container .slider_container {

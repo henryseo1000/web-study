@@ -2,9 +2,10 @@ window.onload = function() {
 
     const slider = document.getElementById('slider');
     const imgContainer = document.getElementById('img_container');
+    const img = document.getElementById('img_frame')
 
     let idx = slider.value;
-    let sliderWidth = imgContainer.clientWidth;
+    let sliderWidth = img.clientWidth;
     let moveAmount = idx * sliderWidth;
 
     function sliderChange () {
@@ -15,13 +16,13 @@ window.onload = function() {
 
     slider.onchange = (e) => sliderChange();
 
-    document.addEventListener('resize', (e) => {
-        sliderWidth = imgContainer.clientWidth;
+    window.addEventListener('resize', (e) => {
+        sliderWidth = img.clientWidth;
         moveAmount = idx * sliderWidth;
         imgContainer.style.transform = `translateX(-${moveAmount}px)`;
     })
 
-    document.addEventListener('click', (e) => {
+    slider.addEventListener('click', (e) => {
         e.preventDefault();
         imgContainer.style.transform = `translateX(-${moveAmount}px)`;
     });

@@ -25,11 +25,14 @@ body {
         flex-direction: row;
         transition-duration: 1s;
 
+        .img_frame {
+            width: 70vw;
+            height: 70%;
+            margin-left: 15vw;
+            margin-right: 15vw;
+        }
+
         img {
-            aspect-ratio: 4 / 2.5;
-            width: 70%;
-            margin-left: 15%;
-            margin-right: 15%;
             border-radius: 10px;
         }
     }
