@@ -15,26 +15,38 @@
 <body>
     <div class="container">
         <div class="img_container" id="img_container">
-            <img 
-                src="{{ url_for('static', filename='input_custom_slider/image.png') }}" 
-                alt="image1"
-                draggable="false"
-            >
-            <img 
-                src="{{ url_for('static', filename='input_custom_slider/image.png') }}" 
-                alt="image1"
-                draggable="false"
-            >
-            <img 
-                src="{{ url_for('static', filename='input_custom_slider/image.png') }}" 
-                alt="image1"
-                draggable="false"
-            >
-            <img 
-                src="{{ url_for('static', filename='input_custom_slider/image.png') }}" 
-                alt="image1"
-                draggable="false"
-            >
+            <div class="img_frame" id="img_frame">
+                <img
+                    id="image1"
+                    src="{{ url_for('static', filename='input_custom_slider/image.png') }}" 
+                    alt="image1"
+                    draggable="false"
+                >
+            </div>
+            <div class="img_frame" id="img_frame">
+                <img
+                    id="image2"
+                    src="{{ url_for('static', filename='input_custom_slider/image.png') }}" 
+                    alt="image1"
+                    draggable="false"
+                >
+            </div>
+            <div class="img_frame" id="img_frame">
+                <img
+                    id="image3"
+                    src="{{ url_for('static', filename='input_custom_slider/image.png') }}" 
+                    alt="image1"
+                    draggable="false"
+                >
+            </div>
+            <div class="img_frame" id="img_frame">
+                <img
+                    id="image4"
+                    src="{{ url_for('static', filename='input_custom_slider/image.png') }}" 
+                    alt="image1"
+                    draggable="false"
+                >
+            </div>
         </div>
         <div class="slider_container" id="slider_container">
             <span id="current_value"></span>

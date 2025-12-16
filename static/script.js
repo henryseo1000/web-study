@@ -17,7 +17,8 @@ const files = [
     'pixel_art_maker',
     'css_with_3d',
     'ball_collision',
-    'flask_sending_email_test'
+    'flask_sending_email_test',
+    'following_post_it'
 ];
 
 var listLength = files.length;
