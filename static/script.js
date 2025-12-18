@@ -18,7 +18,8 @@ const files = [
     'css_with_3d',
     'ball_collision',
     'flask_sending_email_test',
-    'following_post_it'
+    'following_post_it',
+    'spinning_dots'
 ];
 
 var listLength = files.length;
