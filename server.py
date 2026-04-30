@@ -1,10 +1,12 @@
-import os, time, threading;
+import os, time, threading, random;
 import smtplib;
 from flask import Flask, render_template, url_for, redirect, request;
 from watchdog.observers import Observer;
 from watchdog.events import FileSystemEventHandler;
 from dotenv import load_dotenv;
 from flask_mail import Message, Mail;
+
+from config import *
 
 app = Flask("__name__");
 
@@ -75,17 +77,24 @@ def send_email():
     app.config['MAIL_USE_TLS'] = False
     app.config['MAIL_USE_SSL'] = True
 
+    def generateCode() : 
+        code = ""
+
+        for i in range(0, 6):
+            code += str(random.randint(0, 9))
+
+        return code
+
     try :
         mail = Mail(app)
         msg = Message('[이메일 테스트] 안녕하세요!', sender='henryseo1000@gmail.com', recipients=[request.form["customer_email"]])
-        msg.body = '축하합니다! 이 이메일을 받은 당신은 바보입니다!'
+        msg.html = render_template('email_template.html', auth_code = generateCode())
         mail.send(msg)
 
         return "메일이 성공적으로 전송되었습니다."
     
     except:
         return "문제가 발생했습니다. 다시 시도해주세요."
-
 
 def watch_file() :
     file_watcher = Target();
