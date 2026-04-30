@@ -10,6 +10,10 @@ body {
 }
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: #fff;
     width: 80vmin;
     position: absolute;
@@ -80,6 +84,7 @@ body {
 }
 
 .container {
+    width: fit-content;
     align-self: center;
     flex-grow: 0;
 }

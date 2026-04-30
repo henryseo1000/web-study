@@ -1,30 +1,18 @@
-// var fs = require('fs');
-// var files = fs.readdirSync('./templates');
-const files = [
-    'api_request_study',
-    'card_test',
-    'chrome_prank',
-    'chrome_todo',
-    'flex_test',
-    'get_started',
-    'hello_jquery',
-    'input_custom_slider',
-    'simple_ai',
-    'simple_login',
-    'transition_keyframe_test',
-    'web_compiler',
-    'event_bubbling',
-    'pixel_art_maker',
-    'css_with_3d',
-    'ball_collision',
-    'flask_sending_email_test',
-    'following_post_it',
-    'spinning_dots'
-];
+import "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js";
 
-var listLength = files.length;
+async function addList () {
+    const files = await axios.get('/dir_info')
+    .then(function (result) {
+    	const status = result.status;
+        const data = result.data;
+        return data.dir_list;
+     })
+     .catch(function (err) {
+          console.log(err);
+     });
 
-function addList () {
+    var listLength = files.length;
+
     for (var i = 0; i < listLength; i++) {
         const addValue = files[i];
 
@@ -55,7 +43,7 @@ function handleTitleBar () {
     }
 }
 
-window.onload = addList();
+window.onload = await addList();
 
 document.addEventListener('scroll', handleTitleBar);
 document.getElementById('title_area').addEventListener('click', () => window.scrollTo({

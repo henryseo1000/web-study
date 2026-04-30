@@ -24,4 +24,4 @@ echo "<!DOCTYPE html>\n
 </body>
 </html>
 
-<script src=\"{{ url_for('static', filename='$1/script.js')}}\"></script>" | tee index.html > '/dev/null'
+<script src=\"{{ url_for('static', filename='$1/script.js')}}\" type=\"module\" defer></script>" | tee index.html > '/dev/null'

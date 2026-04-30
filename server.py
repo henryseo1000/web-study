@@ -1,6 +1,6 @@
 import os, time, threading, random;
 import smtplib;
-from flask import Flask, render_template, url_for, redirect, request;
+from flask import Flask, render_template, url_for, redirect, request, jsonify, abort;
 from watchdog.observers import Observer;
 from watchdog.events import FileSystemEventHandler;
 from dotenv import load_dotenv;
@@ -11,7 +11,6 @@ from config import *
 app = Flask("__name__");
 
 path = "./templates";
-file_list = os.listdir(path);
 
 load_dotenv()
 
@@ -38,7 +37,6 @@ class Target:
             self.observer.join()
 
 
-
 class Handler(FileSystemEventHandler):
 #FileSystemEventHandler 클래스를 상속받음.
 #아래 핸들러들을 오버라이드 함
@@ -62,7 +60,10 @@ def index():
 
 @app.route("/<string:path>")
 def route(path):
-    return render_template("/" + path + "/index.html");
+    try :
+        return render_template("/" + path + "/index.html");
+    except:
+        abort(404)
 
 @app.route("/login", methods=['POST'])
 def login():
@@ -96,9 +97,23 @@ def send_email():
     except:
         return "문제가 발생했습니다. 다시 시도해주세요."
 
+@app.route("/dir_info", methods=['GET'])
+def getDir() :
+    dir_list = [f for f in os.listdir(path) if os.path.isdir(os.path.join(path, f))]
+
+    return {
+        "dir_list": dir_list,
+        "totalNum" : len(dir_list)
+    };
+
 def watch_file() :
     file_watcher = Target();
     file_watcher.run();
+
+def page_not_found(e):
+    return render_template("404-notfound.html"), 404
+
+app.register_error_handler(404, page_not_found)
 
 app.add_url_rule('/favicon.ico', 'redirect_to', redirect_to);
 

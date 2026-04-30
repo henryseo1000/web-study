@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - 404</title>
+</head>
+
+<script type="module" defer>
+    import { createIcons, House } from 'https://cdn.jsdelivr.net/npm/lucide@1.14.0/+esm';
+    
+    createIcons({
+    icons: {
+        House
+    }
+    });
+</script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 100vh;
+        background-color: black;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        color: white;
+    }
+
+    .title {
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .description {
+        text-align: center;
+        font-size: 15px;
+        font-weight: 100;
+    }
+
+    .home_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 35px;
+        padding: 10px;
+        gap: 5px;
+        color: #ffffff;
+        font-size: 15px;
+        border: 0.5px #464646 solid;
+        border-radius: 7px;
+        background-color: #222222;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        text-decoration: none;
+    }
+
+    .home_button:hover {
+        background-color: #393939;
+    }
+</style>
+<body>
+    <div class="container">
+        <p class="title">Page Not Found | 404</p>
+        <p class="description">Page you are looking for is not found.<br> Please check your link again.</p>
+        <a class="home_button" href="/">
+            <i data-lucide="house" width="15"></i> Go home
+        </a>
+    </div>
+</body>
+</html>
