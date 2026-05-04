@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #343434;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+}
+
+#nav {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: rgb(45, 45, 45, 0.9);
+    backdrop-filter: blur(2px);
+    user-select: none;
+}
+
+#nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#chat_title_area p {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+#chat_description_area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+#connected_as {
+    color: #7a7a7a;
+    font-size: 13px;
+}
+
+#ping_area {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+#dot_ping {
+    position: absolute;
+    left: calc(50% - 3.5px);
+    top: calc(50% - 3.5px);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #28d670;
+    animation: ping 1s infinite;
+}
+
+#dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #28d670;
+}
+
+#input_area {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    left: 50%;
+    bottom: 30px;
+    width: 80%;
+    padding: 10px;
+    gap: 10px;
+    border: 0.5px solid #7c7c7c;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    transform: translateX(-50%);
+}
+
+#input_area input {
+    width: 100%;
+    height: 40px;
+    padding: 0px 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    background-color: #474747;
+    outline: none;
+    transition: 0.2s all;
+}
+
+#input_area input:focus {
+    background-color: #575757;
+}
+
+#input_area #send_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    background-color: #008DE5;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+#input_area #send_button:hover {
+    background-color: #36a5eb;
+}
+
+#input_area #add_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    background-color: #474747;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+#input_area #add_button:hover {
+    background-color: #616161;
+}
+
+#input_area #image_shower {
+    display: none;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    top: -170px;
+    width: fit-content;
+    height: 150px;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    transform: translateX(-50%);
+    transition: 0.2s all;
+}
+
+#input_area #image_shower:hover {
+    opacity: 70%;
+}
+
+#input_area #image_shower img {
+    height: 100%;
+    border-radius: 20px;
+}
+
+#message_area {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px 120px 20px;
+    gap: 30px;
+}
+
+#message_container {
+    display: flex;
+    align-items: flex-end;
+    color: #8f8f8f;
+    gap: 10px;
+}
+
+#message_container #timestamp {
+    font-size: 10px;
+}
+
+#message {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#message_text {
+    text-align: right;
+}
+
+#my_text #message_container {
+    flex-direction: row-reverse;
+}
+
+#others_text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#others_text #username {
+    color: #ffffff;
+}
+
+#others_text #message {
+    width: fit-content;
+    padding: 10px 15px;
+    color: #ffffff;
+    font-weight: 300;
+    border-radius: 20px;
+    background-color: #565656;
+}
+
+#my_text {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+#my_text #username {
+    display: none;
+}
+
+#my_text #message {
+    padding: 10px 15px;
+    color: #ffffff;
+    font-weight: 300;
+    border-radius: 20px;
+    background-color: #008DE5;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

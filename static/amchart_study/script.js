@@ -141,6 +141,7 @@ series2.bullets.push(function () {
 series2.data.setAll(data);
 
 series.appear(1000, 100);
+series2.appear(1000, 100);
 chart.appear(1000, 100);
 
 var legend = chart.children.push(am5.Legend.new(root, {

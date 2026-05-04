@@ -110,6 +110,18 @@ def setESP32():
 
     return jsonify({"led_id": led_id.key, "distance_id": distance_id.key}), 201
 
+@app.route("/getConfig")
+def getConfig() :
+    return {
+        "apiKey": "AIzaSyBFmT3Dn80MzeMvU04LKlAnn3NExucKZR0",
+        "authDomain": "mjusubwaystation.firebaseapp.com",
+        "projectId": "mjusubwaystation",
+        "storageBucket": "mjusubwaystation.firebasestorage.app",
+        "databaseURL": "https://mjusubwaystation-default-rtdb.firebaseio.com",
+        "messagingSenderId": "638521949353",
+        "appId": "1:638521949353:web:bf3e7b019577ad0d8a7db8"
+    }
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404-notfound.html"), 404
