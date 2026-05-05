@@ -37,7 +37,6 @@ def loginForm():
     else :
         return render_template("/api_request_study/index.html");
 
-
 @app.route("/login_req", methods=['POST'])
 def loginReq():
     user_id = request.form['id']

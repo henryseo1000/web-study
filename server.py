@@ -40,6 +40,13 @@ def route(path):
     except:
         abort(404)
 
+@app.route("/description/<string:path>")
+def getPageDescription(path):
+    f = open("./templates/" + path + "/" + path + ".md", 'r')
+    data = f.read()
+    f.close()
+    return data
+
 @app.route("/videos/<int:path>")
 def video_route(path):
     video_title = os.listdir("./static/videos")[path - 1]

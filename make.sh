@@ -3,9 +3,15 @@
 mkdir templates/$1
 mkdir static/$1
 
-touch static/$1/style.css static/$1/script.js
+cd $PWD/static/$1
 
-cd $PWD/templates/$1
+mkdir css
+mkdir js
+mkdir assets
+
+touch css/style.css js/script.js
+
+cd ../../templates/$1
 
 touch $1.md index.html
 

@@ -16,12 +16,12 @@ export class ChatMessage {
 
         const timestamp = document.createElement('p');
         timestamp.id = "timestamp";
-        timestamp.innerText = this.timestamp.toDate()
+        timestamp.innerText = this.timestamp.toDate();
 
         const username =  document.createElement('p');
         const messageText =  document.createElement('p');
         const message =  document.createElement('div');
-        message.id = "message"
+        message.id = "message";
 
         if (this.username === this.current_user) {
             textDiv.id = "my_text";
