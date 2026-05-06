@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset=UTF-8>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='video_player/css/style.css')}}">
+    <link href=https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css rel=stylesheet>
+    <title>Web Study | By Henry</title>
+</head>
+<body>
+    <div id="container">
+        <video id="video_player"></video>
+        <div id="sub">
+            <div id="description_area">
+                <p id="video_title"></p>
+                <p id="video_info"></p>
+            </div>
+            <div id="button_area">
+                <button id="prev_button"><i data-lucide="arrow-left" width="17"></i>Prev</button>
+                <button id="next_button">Next<i data-lucide="arrow-right" width="17"></i></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="{{ url_for('static', filename='video_player/js/script.js')}}" type="module" defer></script>

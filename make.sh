@@ -21,7 +21,7 @@ echo "<!DOCTYPE html>\n
     <meta charset="UTF-8">
     <link rel=\"shortcut icon\" href=\"{{ url_for('static', filename='favicon/favicon.ico') }}\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <link rel=\"stylesheet\" href=\"{{ url_for('static', filename='$1/style.css')}}\">
+    <link rel=\"stylesheet\" href=\"{{ url_for('static', filename='$1/css/style.css')}}\">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Web Study | By Henry</title>
 </head>
@@ -30,4 +30,4 @@ echo "<!DOCTYPE html>\n
 </body>
 </html>
 
-<script src=\"{{ url_for('static', filename='$1/script.js')}}\" type=\"module\" defer></script>" | tee index.html > '/dev/null'
+<script src=\"{{ url_for('static', filename='$1/js/script.js')}}\" type=\"module\" defer></script>" | tee index.html > '/dev/null'
