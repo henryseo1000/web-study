@@ -77,6 +77,16 @@ class App {
         const playBar = document.getElementById("play_bar");
         const currentTime = document.getElementById("current_time");
         const totalTime = document.getElementById("total_time");
+        window.addEventListener("mousewheel", (e) => {
+            if(e.deltaY < -10) {
+                container.style.transform = "none"
+                dragDropContainer.style.transform = "translate(0%, 200%)"
+            }
+            else if (e.deltaY > 10) {
+                container.style.transform = "translate(0%, -200%)"
+                dragDropContainer.style.transform = "none"
+            }
+        })
 
         chevronDown.addEventListener("click", () => {
             container.style.transform = "translate(0%, -200%)"
@@ -110,6 +120,10 @@ class App {
 
         chevronLeft.addEventListener("click", () => {
             this.prev();
+        })
+
+        this.nowPlaying.addEventListener("play", (e) => {
+            playBar.setAttribute("max", e.target.duration);
         })
 
         this.nowPlaying.addEventListener("ended", () => {
@@ -213,12 +227,11 @@ class App {
     }
 
     next() {
-        this.pause();
-
         if (this.audios.length - 1 === this.currentAudioIdx) {
             alert("마지막 곡입니다.");
         }
         else {
+            this.pause();
             this.currentAudioIdx += 1;
             this.nowPlaying.src = this.audios[this.currentAudioIdx].blob;
             this.play();
@@ -226,12 +239,11 @@ class App {
     }
 
     prev() {
-        this.pause();
-
         if (this.currentAudioIdx === 0) {
             alert("첫 곡입니다.");
         }
         else {
+            this.pause();
             this.currentAudioIdx -= 1;
             this.nowPlaying.src = this.audios[this.currentAudioIdx].blob;   
             this.play();
