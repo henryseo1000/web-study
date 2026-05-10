@@ -18,7 +18,7 @@ cred = credentials.Certificate("./mjusubwaystation-firebase-adminsdk-lxlon-53f12
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://mjusubwaystation-default-rtdb.firebaseio.com'
 });
-firestore_db = firestore.client()
+firestore_db = firestore.client();
 
 #load env variables
 load_dotenv()

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset=UTF-8>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='drag_and_drop/css/style.css')}}">
+    <link href=https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css rel=stylesheet>
+    <title>Web Study | By Henry</title>
+</head>
+<body>
+    <div id="container">
+        <div id="album_area">
+            <img id="album_img" src="{{ url_for('static', filename='drag_and_drop/assets/record.png')}}" alt="">
+            <div id="record"></div>
+        </div>
+        
+        <div id="music_title_container">
+            <p id="music_title"></p>
+        </div>
+        <div id="control_area">
+            <i data-lucide="chevron-left"></i>
+            <i data-lucide="play"></i>
+            <i data-lucide="pause"></i>
+            <i data-lucide="chevron-right"></i>
+        </div>
+        <input type="range" id="play_bar">
+        <div id="time_area">
+            <p id="current_time">--:--</p>
+            <p id="total_time">--:--</p>
+        </div>
+
+        <i data-lucide="chevron-down"></i>
+    </div>
+    <div id="drag_drop_container">
+        <div id="empty">
+            <i data-lucide="circle-plus"></i>
+            <p>Drag & Drop Musics</p>
+        </div>
+
+        <div id="file_list">
+
+        </div>
+
+        <button id="upload_button">Uplaod</button>
+
+        <i data-lucide="chevron-up"></i>
+    </div>
+    <div id="drawer_container">
+        <p>재생 목록</p>
+        <i data-lucide="x"></i>
+        <div id="playlist">
+
+        </div>
+    </div>
+    <i data-lucide="menu"></i>
+    <div id="tooltip"></div>
+</body>
+</html>
+
+<script src="{{ url_for('static', filename='drag_and_drop/js/script.js')}}" type="module" defer></script>
