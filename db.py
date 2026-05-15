@@ -11,7 +11,7 @@ def connectDb() :
     connection = pymysql.connect(host=os.getenv("PRODUCTION_SERVER"),
         user=os.getenv("PRODUCTION_USERNAME"),
         password=os.getenv("PRODUCTION_PWD"),
-        database='testdb',
+        database=os.getenv("PRODUCTION_DB_NAME"),
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
