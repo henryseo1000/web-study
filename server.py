@@ -6,8 +6,11 @@ import firebase_admin;
 from firebase_admin import credentials;
 from firebase_admin import firestore;
 from firebase_admin import db;
-
 from config import *;
+from db import *;
+
+#load env variables
+load_dotenv();
 
 # init app
 app = Flask("__name__");
@@ -19,9 +22,6 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://mjusubwaystation-default-rtdb.firebaseio.com'
 });
 firestore_db = firestore.client();
-
-#load env variables
-load_dotenv()
 
 def redirect_to():
     return url_for('static', filename='favicon/favicon.ico');
@@ -117,6 +117,31 @@ def setESP32():
 
     return jsonify({"led_id": led_id.key, "distance_id": distance_id.key}), 201
 
+@app.route("/uploadFiles", methods=['POST'])
+def uploadFiles():
+    file = request.files["file_data"]
+    blob_data = file.read()
+    uploadFileData(blob_data, file.filename);
+
+@app.route("/getFiles", methods=['GET'])
+def getFiles():
+    data = getFileLists();
+    return data;
+
+@app.route("/getFiles/<int:id>", methods=['GET'])
+def getFile(id):
+    file_info = getFileById(id);
+
+    return send_file(
+        file_info["file_stream"],
+        as_attachment=True,
+        download_name=file_info["file_name"]
+    )
+
+@app.route("/deleteFiles/<int:id>", methods=['DELETE'])
+def deleteFiles(id):
+    return deleteFilesById(id)
+
 @app.route("/getConfig")
 def getConfig() :
     return {
@@ -128,6 +153,10 @@ def getConfig() :
         "messagingSenderId": "638521949353",
         "appId": "1:638521949353:web:bf3e7b019577ad0d8a7db8"
     }
+
+@app.route("/getGraphDatas")
+def getGraphDatas() :
+    return getAllGraphDatas();
 
 @app.errorhandler(404)
 def page_not_found(e):

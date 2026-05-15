@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset=UTF-8>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='file_upload_oracle/css/style.css')}}">
+    <title>Web Study | By Henry</title>
+</head>
+<body>
+    <form id="upload_form" method="post" action="/uploadFiles" enctype="multipart/form-data">
+        <input name="file_data" type="file" id="file_input"></input>
+        <input name="send" type="submit" id="submit_button"/>
+    </form>
+    <div id="container">
+        <p id="file_name"></p>
+        <div id="progress_container">
+            <div id="progress_bar"></div>
+        </div>
+        <div id="button_area">
+            <button id="browse_button">Browse Files</button>
+            <button id="upload_button" disabled>Upload File</button>
+        </div>
+    </div>
+    <div id="file_list">
+
+    </div>
+</body>
+</html>
+
+<script src="{{ url_for('static', filename='file_upload_oracle/js/script.js')}}" type="module" defer></script>
